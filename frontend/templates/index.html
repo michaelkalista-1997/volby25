@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czech Elections 2025 Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Czech Parliamentary Elections 2025</h1>
+        <div class="controls">
+            <label for="scope-select">Scope</label>
+            <select id="scope-select">
+                <option value="country|CZ">Country</option>
+                <option value="region|CZ010">Region</option>
+                <option value="district|CZ0201">District</option>
+                <option value="municipality|554782">Municipality</option>
+                <option value="abroad|ABROAD">Abroad</option>
+            </select>
+        </div>
+    </header>
+    <section class="stats">
+        <div class="stat-card">
+            <span class="label">Counted districts</span>
+            <span class="value" id="counted">0 / 0</span>
+        </div>
+        <div class="stat-card">
+            <span class="label">Total votes</span>
+            <span class="value" id="total-votes">0</span>
+        </div>
+        <div class="stat-card">
+            <span class="label">Voter turnout</span>
+            <span class="value" id="turnout">0%</span>
+        </div>
+        <div class="stat-card">
+            <span class="label">Counting speed (last hour)</span>
+            <span class="value" id="speed">0 districts/h</span>
+        </div>
+    </section>
+    <section class="charts">
+        <div class="chart-card">
+            <h2>Vote progress over time</h2>
+            <canvas id="progress-chart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h2>Current party results</h2>
+            <canvas id="party-chart"></canvas>
+        </div>
+    </section>
+    <section class="timeline">
+        <h2>Historical view</h2>
+        <input type="range" id="timeline-slider" min="0" max="0" value="0">
+        <span id="timeline-label"></span>
+    </section>
+    <section class="comparison">
+        <h2>Region comparison</h2>
+        <div class="comparison-controls">
+            <select id="compare-a">
+                <option value="country|CZ">Country</option>
+                <option value="region|CZ020">Region A</option>
+            </select>
+            <select id="compare-b">
+                <option value="region|CZ031">Region B</option>
+                <option value="district|CZ0645">District</option>
+            </select>
+            <button id="compare-button">Compare</button>
+        </div>
+        <div id="comparison-result"></div>
+    </section>
+    <footer>
+        <button id="export-json">Download JSON</button>
+        <button id="export-csv">Download CSV</button>
+    </footer>
+</div>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
