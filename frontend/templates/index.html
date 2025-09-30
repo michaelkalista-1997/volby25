@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elections 2025 Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="page-header">
+        <h1>Parliamentary Elections 2025</h1>
+        <p>Real-time monitoring of Czech parliamentary elections 2025</p>
+    </header>
+
+    <main class="dashboard">
+        <section class="controls">
+            <div class="control-group">
+                <label for="scope-type">Scope</label>
+                <select id="scope-type">
+                    <option value="nation" selected>Whole country</option>
+                    <option value="region">Region</option>
+                    <option value="district">District</option>
+                    <option value="municipality">Municipality</option>
+                    <option value="abroad">Abroad</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="scope-code">Code</label>
+                <input id="scope-code" type="text" value="CZ" />
+            </div>
+            <div class="control-group">
+                <label for="history-slider">Historical view</label>
+                <input id="history-slider" type="range" min="0" max="0" value="0" />
+            </div>
+            <div class="control-group">
+                <button id="export-json">Download JSON</button>
+                <button id="export-csv">Download CSV</button>
+            </div>
+            <div class="control-group info">
+                <p><span id="counted-districts">0</span> counted districts</p>
+                <p><span id="total-votes">0</span> total votes</p>
+                <p><span id="turnout">0</span>% turnout</p>
+                <p><span id="speed">0</span> districts/hour</p>
+            </div>
+        </section>
+
+        <section class="charts">
+            <div class="chart-card">
+                <h2>Counting timeline</h2>
+                <canvas id="timeline-chart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h2>Party results</h2>
+                <canvas id="party-chart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>Data source: volby.cz &mdash; auto-refresh every 10 seconds</p>
+    </footer>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
