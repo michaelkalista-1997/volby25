@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+requests
+lxml
+pandas
+plotly
+apscheduler
+websockets
