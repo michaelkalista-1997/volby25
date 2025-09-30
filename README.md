@@ -65,6 +65,30 @@ To run both processes at once use the helper script:
 
 Open `http://localhost:8000` in the browser to view the dashboard.
 
+### Docker
+
+You can build and run the entire stack inside a container. The image exposes the
+application on port `8000` and stores the SQLite database under `/data` so that
+you can persist election snapshots across restarts.
+
+Build the image:
+
+```bash
+docker build -t volby2025 .
+```
+
+Run it with a named volume for the database:
+
+```bash
+docker run --rm -p 8000:8000 -v volby2025-data:/data volby2025
+```
+
+Alternatively use Docker Compose:
+
+```bash
+docker compose up --build
+```
+
 ## Features
 
 - Continuous polling of volby.cz XML feeds every second
