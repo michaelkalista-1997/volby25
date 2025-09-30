@@ -7,6 +7,7 @@ from pathlib import Path
 _DEFAULT_DB_PATH = Path(__file__).resolve().parent / "database" / "volby.db"
 DATABASE_PATH = Path(os.getenv("VOLBY_DATABASE_PATH", str(_DEFAULT_DB_PATH)))
 
+
 # Interval stahování v sekundách
 FETCH_INTERVAL_SECONDS = 1
 
