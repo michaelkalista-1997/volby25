@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  volby2025:
+    build: .
+    image: volby2025:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - volby2025-data:/data
+volumes:
+  volby2025-data:
+    driver: local

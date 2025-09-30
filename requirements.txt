@@ -1,0 +1,8 @@
+fastapi==0.110.1
+uvicorn[standard]==0.29.0
+requests==2.31.0
+lxml==5.1.0
+sqlalchemy==2.0.29
+pandas==2.2.1
+apscheduler==3.10.4
+websockets==12.0
